@@ -35,7 +35,7 @@ class Board:
     #Check if a rotation fits inside the board
     def checkBounds(self,piece:List[Tuple[int,int]],x:int,y:int)->bool:
         for i,j in piece:
-            if i+x >= self.X or j+y >= self.Y:
+            if i+x >= self.X or j+y >= self.Y or i+x < 0 or j+y<0:
                 #Out of bounds
                 return False
         return True
@@ -323,11 +323,6 @@ def solve(board:Board,pieces:List[Piece]):
 
     if pieces == []:
         return None
-    
-    if len(pieces) == 1:
-        print('----------------------------------------------------')
-        board.printBoard()
-        print('----------------------------------------------------')
 
     currentPiece = pieces[0]
     
