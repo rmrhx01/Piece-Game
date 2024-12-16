@@ -80,7 +80,7 @@ The game includes a backtracking algorithm to solve the puzzle:
 
 ## Known Limitations
 - The solver may be slow for very large boards or complex configurations due to the recursive nature of backtracking.
-- Requires manual restart if an unsolvable configuration is encountered.
+
 
 ## Future Enhancements
 - Add difficulty levels with varying board sizes and piece complexities.

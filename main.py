@@ -136,29 +136,16 @@ while running:
                                 piece.generatePositions(board)
                             piecesToPlace = sortPieces(piecesToPlace)
                             board = solve(board,[piece for piece in piecesToPlace.values()])
-                            for piece in piecesToPlace.values():
-                                piece.onBoard = True
-                                piece.findPosition(board)
+                            if board != None:
+                                for piece in piecesToPlace.values():
+                                    piece.onBoard = True
+                                    piece.findPosition(board)
+                            else : 
+                                print("No solution possible")
                         elif button.name == 'New':
                             pieces = declarePieces()
                             board = Board(11,5,startX=SCREEN_WIDTH/2-5.5*BLOCK_SIZE,block_size=BLOCK_SIZE)
                             piecesToPlace = {piece.tag:piece for piece in pieces}
-                        elif button.name == 'Debug':
-                            """
-                            if index == -1:
-                                for piece in piecesToPlace.values():
-                                    piece.generatePositions(board)
-                                piecesToPlace = sortPieces(piecesToPlace)
-                                index = 0
-                                board.placePosition(debug_piece.positions[index],debug_piece.tag)
-                                piece.onBoard = True
-                                debug_piece.findPosition(board)
-                            else:
-                                board.undoRotation(debug_piece.positions[index])
-                                index += 1
-                                board.placePosition(debug_piece.positions[index],debug_piece.tag)
-                                debug_piece.findPosition(board)
-                            """
                         break
                         
                 
